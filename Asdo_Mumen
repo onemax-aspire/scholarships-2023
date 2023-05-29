@@ -1,0 +1,248 @@
+class CoffeeChats:
+    
+    #Define static finals to be used later in printing.
+    
+    INDUSTRIES = "Choose your industry, enter a number (1 - 10):\n" \
+                 "\n\t 1) All" \
+                 "\n\t 2) Accounting" \
+                 "\n\t 3) Education" \
+                 "\n\t 4) Business" \
+                 "\n\t 5) Consulting" \
+                 "\n\t 6) Arts" \
+                 "\n\t 7) Engineering" \
+                 "\n\t 8) Finance" \
+                 "\n\t 9) Health Care" \
+                 "\n\t 10) Other\n"
+
+    BOOKING = "\nBook a coffee chat with:\n"
+
+    EDUCATION = "\n\t- Ahmad\n" \
+                "\n\t- Company: SkillsCamp" \
+                "\n\t- Industry: Education" \
+                "\n\t- Price: 5 credit" \
+                "\n\t- Title: Founder and CEO" \
+                "\n\t- Region: Vancouver\n"
+
+    BUSINESS = "\n\t- Mohammad\n" \
+               "\n\t- Company: Shura Management" \
+               "\n\t- Industry: Business" \
+               "\n\t- Price: 5 credit" \
+               "\n\t- Title: Managing Director and CEO" \
+               "\n\t- Region: Ontario\n" \
+               "\n\t- Salem\n" \
+               "\n\t- Company: Arizai and AskforTask Inc." \
+               "\n\t- Industry: Business" \
+               "\n\t- Price: 6 credit" \
+               "\n\t- Title: CEO" \
+               "\n\t- Region: Ontario\n"
+
+    ARTS = "\n\t- Abd-AlRahman\n" \
+           "\n\t- Company: Fine Art" \
+           "\n\t- Industry: Arts" \
+           "\n\t- Price: 4 credit" \
+           "\n\t- Title: Artist" \
+           "\n\t- Region: Calgary\n"
+
+    ENGINEERING = "\n\t- Ayham\n" \
+                  "\n\t- Company: Rapidea" \
+                  "\n\t- Industry: Engineering" \
+                  "\n\t- Price: 6 credit" \
+                  "\n\t- Title: Manager" \
+                  "\n\t- Region: Vancouver\n\n" \
+                  "\n\t- Ali\n" \
+                  "\n\t- Company: Stantec" \
+                  "\n\t- Industry: Engineering" \
+                  "\n\t- Price: 7 credit" \
+                  "\n\t- Title: CEO" \
+                  "\n\t- Region: Vancouver"
+
+    # Will be used to simplify the loop.
+    userInput = -1
+
+    @staticmethod
+    def main(args):
+
+        # calling the methods.
+        CoffeeChats.printing()
+        CoffeeChats.selecting()
+
+    @staticmethod
+    def printing():
+        
+        # displays the available industries and prompts the user for input.
+        
+        validInput = False
+
+        while not validInput:
+
+            print(CoffeeChats.INDUSTRIES)
+
+            try:
+
+                userInput = int(input())
+
+                validInput = 1 <= userInput <= 10
+
+            except ValueError:
+
+                print("Invalid input.")
+
+        CoffeeChats.userInput = userInput
+
+    @staticmethod
+    def selecting():
+        
+        # handles the logic for selecting and registering coffee chats based on user input.
+        
+        if CoffeeChats.userInput == 1:
+
+            print(CoffeeChats.BOOKING + CoffeeChats.EDUCATION + CoffeeChats.BUSINESS + CoffeeChats.ARTS + CoffeeChats.ENGINEERING + "\n\nWrite the name or enter anything to exit ... ")
+
+            name = input()
+
+            if name.lower() in ["ahmad", "mohammad", "salem", "abd-alrahman", "ayham", "ali"]:
+
+                print("\tThank you for registering!")
+
+            else:
+
+                print("\tThank You !")
+
+        elif CoffeeChats.userInput in [2, 5, 8, 9]:
+
+            print("\n\tNo coffee chats meet the applied filter" + "\n\t\t1) back \n\t\t2) Exit")
+
+            try:
+
+                choice = int(input())
+
+                if choice == 1:
+
+                    CoffeeChats.printing()
+
+                    CoffeeChats.selecting()
+
+                elif choice == 2:
+
+                    print("\tThank You !")
+
+                else:
+
+                    print("\tThank You !")
+
+            except ValueError:
+
+                print("Invalid input. Exiting...")
+                
+        elif CoffeeChats.userInput == 3:
+
+            print(CoffeeChats.BOOKING + CoffeeChats.EDUCATION + "\n\tRegister? Enter a number or anything to exit \n\t1) Yes" + "\t2) No")
+            
+            try:
+
+                choice = int(input())
+
+                if choice == 1:
+
+                    print("\tThank you for registering!")
+
+                else:
+
+                    print("\tThank You !")
+
+            except ValueError:
+
+                print("Invalid input. Exiting...")
+
+        elif CoffeeChats.userInput == 4:
+
+            print(CoffeeChats.BOOKING + CoffeeChats.BUSINESS + "\n\tEnter a number to register or anything to exit \n\t1) Mohammad" + "\t2) Salem\n")
+
+            try:
+
+                choice = int(input())
+
+                if choice in [1, 2]:
+
+                    print("\tThank you for registering!")
+
+                else:
+
+                    print("\tThank You !")
+
+            except ValueError:
+
+                print("Invalid input. Exiting...")
+
+        elif CoffeeChats.userInput == 6:
+
+            print(CoffeeChats.BOOKING + CoffeeChats.ARTS + "\n\tRegister? Enter a number or anything to exit \n\t1) Yes" + "\t2) No\n")
+
+            try:
+
+                choice = int(input())
+
+                if choice == 1:
+
+                    print("\tThank you for registering!")
+
+                else:
+
+                    print("\tThank You !")
+
+            except ValueError:
+
+                print("Invalid input. Exiting...")
+
+        elif CoffeeChats.userInput == 7:
+
+            print(CoffeeChats.BOOKING + CoffeeChats.ENGINEERING + "\n\n\tEnter a number to register or anything to exit \n\t1) Ayham" + "\t2) Ali\n")
+
+            try:
+
+                choice = int(input())
+
+                if choice in [1, 2]:
+
+                    print("\tThank you for registering!")
+
+                else:
+
+                    print("\tThank You !")
+
+            except ValueError:
+
+                print("Invalid input. Exiting...")
+
+        elif CoffeeChats.userInput == 10:
+
+            print("Please write the name of your industry: ")
+
+            name = input()
+
+            print("\n\tNo coffee chats meet your industry right now\n\t\t1) back \n\t\t2) Exit\n")
+
+            try:
+
+                choice = int(input())
+
+                if choice == 1:
+
+                    CoffeeChats.printing()
+
+                    CoffeeChats.selecting()
+
+                elif choice == 2:
+
+                    print("\tThank You !")
+
+                else:
+
+                    print("\tThank You !")
+
+            except ValueError:
+
+                print("Invalid input. Exiting...")
+
+
+CoffeeChats.main([])
