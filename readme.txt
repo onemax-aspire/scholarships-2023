@@ -1,5 +1,3 @@
-# scholarships-2023
-
 # Coffee Chat Scheduler
 
 This code demonstrates a matching algorithm and coffee chat scheduler that pairs aspiring professionals with senior executives based on their industries, interests, and activity levels. The algorithm generates recommendations and creates a schedule for coffee chats between the matched pairs.
